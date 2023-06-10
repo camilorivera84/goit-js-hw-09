@@ -1,7 +1,7 @@
-let intervalId; // Variable parael intervalo de tiempo
+let interval;
 const startButton = document.querySelector('button[data-start]');
 const stopButton = document.querySelector('button[data-stop]');
-stopButton.disabled = true; // Ocultamos el boton stop
+stopButton.disabled = true;
 
 const getRandomHexColor = () => {
   return `#${Math.floor(Math.random() * 16777215)
@@ -9,27 +9,22 @@ const getRandomHexColor = () => {
     .padStart(6, 0)}`;
 };
 
-// Funcion para obtener un fondo aleatorio
-const changeBackgroungColor = () =>
+const changeBackgroundColor = () =>
   (document.body.style.backgroundColor = getRandomHexColor());
 
-//Funcion para iniciar la ejecucion del intervalo
-const onInterval = () => {
+const actionInterval = () => {
   startButton.disabled = true;
   stopButton.disabled = false;
-  changeBackgroungColor(); // hacemos el primer cambio de fondo
-  // Metodo interval para repeteir el codigo cada segundo
-  intervalId = setInterval(changeBackgroungColor, 1000);
+  changeBackgroundColor();
+  interval = setInterval(changeBackgroundColor, 500);
 };
 
-//Funcion para detener la ejecucion  del intervalo
-const clsInterval = () => {
+const stopInterval = () => {
   startButton.disabled = false;
   stopButton.disabled = true;
-  // Metodo para detener el intervalo de tiempo de start
-  clearInterval(intervalId);
+
+  clearInterval(interval);
 };
 
-// Leemos los eventos en los botones
-startButton.addEventListener('click', onInterval);
-stopButton.addEventListener('click', clsInterval);
+startButton.addEventListener('click', actionInterval);
+stopButton.addEventListener('click', stopInterval);

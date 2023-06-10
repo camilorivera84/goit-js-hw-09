@@ -1,47 +1,19 @@
-/*const $days = document.querySelector('span[data-days]'),
-  $hours = document.querySelector('span[data-hours]'),
-  $minutes = document.querySelector('span[data-minutes]'),
-  $seconds = document.querySelector('span[data-seconds]'),
-  $datetime = document.getElementById('datetime-picker');
-
-//fecha a futuro
-
-const countdownDate = new Date('Dec 25, 2023 00:00:00').getTime();
-let interval = setInterval(function () {
-  //obtener fecha actual milisegundos
-  const now = new Date().getTime();
-  //obtener las distancias entre ambas fechas
-  let distance = countdownDate - now;
-  //calculos a dias, horas, minutos y segundos
-  let days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-  //escribimos resultados
-  $days.innerHTML = days;
-  $hours.innerHTML = hours;
-  $minutes.innerHTML = minutes;
-  $seconds.innerHTML = ('0' + seconds).slice(-2);
-}, 1000);*/
-
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 import Notiflix from 'notiflix';
 
 Notiflix.Notify.init();
-// constantes funcionales
+
 const datetimePicker = document.getElementById('datetime-picker');
 const startButton = document.querySelector('[data-start]');
 const stopButton = document.querySelector('[data-stop]');
 const resetButton = document.querySelector('[data-reset]');
 
-// constantes de tiempo
 const daysElement = document.querySelector('[data-days]');
 const hoursElement = document.querySelector('[data-hours]');
 const minutesElement = document.querySelector('[data-minutes]');
 const secondsElement = document.querySelector('[data-seconds]');
 
-// Variable para almacenamiento
 let countInterval;
 let remainingTime;
 
